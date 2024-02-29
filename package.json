@@ -11,6 +11,7 @@
 		"@types/react": "^18.2.57",
 		"@types/react-dom": "^18.2.19",
 		"@webgpu/types": "^0.1.40",
+		"gh-pages": "^6.1.1",
 		"gl-matrix": "^3.4.3",
 		"lil-gui": "^0.19.1",
 		"react": "^18.2.0",
@@ -24,7 +25,9 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"deploy": "gh-pages -d build",
+		"predeploy": "yarn run build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -43,5 +46,6 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	}
+	},
+	"homepage": "https://ChoSeungHei.github.io/encar-hackathon-2024"
 }
