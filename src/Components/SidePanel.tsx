@@ -1,13 +1,17 @@
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import { List, ListItem } from '@mui/material';
+import { List, ListItem, ListItemText } from '@mui/material';
 import ScrollableTabs from './ScrollableTabs';
-import React from "react";
+import React, {useState} from "react";
 import { ITab } from "../Types/ITab";
+import IconButton from '@mui/material/IconButton';
+import { ArrowRightIcon } from '../Assets/tab-icons/icons';
+import DetailItem from './DetailItem';
+import { INTERIOR } from '../constants';
 
 const SidePanel = () => {
-    const [tabKey, setTabKey] = React.useState('tab1'); //Default로 먼저 선택된 탭키.
+    const [tabKey, setTabKey] = useState('tab1'); //Default로 먼저 선택된 탭키.
+    const [view, setView] = useState('list')
 
     // Tabs
     var tab1:ITab = {
@@ -42,6 +46,13 @@ const SidePanel = () => {
     };
     var tabs: ITab[] = [tab1, tab2, tab3, tab4, tab5];
 
+    const handleChangeView =(name:string) => {
+        if(name){
+            setView(name)
+        }
+        setView('list')
+    }
+
     return (
     <Drawer open={true} hideBackdrop>
         <Box sx={{ width: 400 }} >
@@ -54,18 +65,14 @@ const SidePanel = () => {
             </>
         { tabKey === "tab1" &&
             (<List>
-                <ListItem >전면부</ListItem>
-                <ListItem style={{backgroundColor:'#000'}}>본네트</ListItem>
-                <ListItem>라디에이트 그릴</ListItem>
-                <ListItem>앞범퍼</ListItem>
-                <ListItem>운전석 측면</ListItem>
-                <ListItem>사이드 스텝</ListItem>
-                <ListItem>동승석 측면</ListItem>
-                <ListItem>후면</ListItem>
-                <ListItem>천장</ListItem>
-                <ListItem>유리</ListItem>
-                <ListItem>휠타이어</ListItem>
-                <ListItem>옵션</ListItem>
+                <ListItem style={{backgroundColor:'#666'}}>전면부</ListItem>
+                {INTERIOR.map((item) => 
+                    <DetailItem 
+                        name={item.name}
+                        desc={item.desc}
+                        onSelect={()=>handleChangeView(item.name)}
+                    />)
+                }
             </List>)}
         { tabKey === "tab2" &&
             (<List>
