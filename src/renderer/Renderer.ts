@@ -166,7 +166,7 @@ export class Renderer extends RendererOrigin {
     async MakeModelData() {
         const loader = new ObjLoader();
 
-        this.models = await loader.load('./objects/final_final.obj', 50.0); // 예제 경로와 스케일
+        this.models = await loader.load('./objects/final_3.obj', 50.0); // 예제 경로와 스케일
 
         let center: vec3[] = [];
 
