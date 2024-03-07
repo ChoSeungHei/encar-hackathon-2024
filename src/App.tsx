@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import ObjFileLoader from './Components/ObjFileLoader';
 import { Initialize } from './Components/RendererModule';
+import { CloseIncon } from './Assets/tab-icons/icons';
 import SidePanel from './Components/SidePanel';
 
 
@@ -17,16 +18,22 @@ const darkTheme = createTheme({
 function App() {
   let start = false;
   useEffect(() => {
-    if(!start) {
+    if (!start) {
       Initialize();
       start = true;
     }
   }, []);
 
   return (
-    <ThemeProvider theme={darkTheme}> 
-      <canvas id="gfx-main" width="1920" height="800"></canvas>
+    <ThemeProvider theme={darkTheme}>
       <SidePanel></SidePanel>
+      <div className='wrap'>
+        <header className='header'>
+          <h1>Here is the exterior inspection result</h1>
+          <span><CloseIncon /></span>
+        </header>
+        <canvas id="gfx-main" width="1920" height="800"></canvas>
+      </div>
     </ThemeProvider>
   );
 }
