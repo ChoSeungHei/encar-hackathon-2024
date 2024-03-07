@@ -75,7 +75,7 @@ const SidePanel = ({setTitle}:Props) => {
     <Drawer open={true} hideBackdrop>
         {
             view === 'list' ? 
-            <Box sx={{ width: 400 }} >
+            <Box sx={{ width: 370 }} >
                 <>
                     <ScrollableTabs
                         tabs={tabs}
