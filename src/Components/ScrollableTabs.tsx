@@ -33,7 +33,7 @@ const ScrollableTabs: React.FC<ScrollableTabsProps> = ({
                 }
                 },
                 "&>.MuiTab-iconWrapper": {
-                opacity: "50%"
+                opacity: "30%"
                 }
             }
             }
