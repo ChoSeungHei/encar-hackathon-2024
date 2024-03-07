@@ -3,8 +3,10 @@ $right-arrow: '/assets/arrow-right.png';
 $up-arrow: '/assets/arrow-up.png';
 $down-arrow: '/assets/arrow-down.png';
 $origin: '/assets/repeat.png';
+$book: '/assets/book.png';
 
-.controller_box{display:flex;gap:8px;padding:8px;position:absolute;bottom:60px;left:50%;border-radius:8px;transform:translate(-50%,0);background:#181818CC}
+.controller_box{display:flex;gap:11px;position:absolute;bottom:60px;left:50%;transform:translate(-50%,0)}
+.arrow_box{display:flex;gap:8px;padding:8px;border-radius:8px;background:#181818CC}
 .controller_btn{position:relative;width:66px;height:68px;font-size:12px;font-weight:500;line-height:16px;color:#A0A0A0;text-align:center}
 .arrow:before{content:'';display:block;width:32px;height:32px;margin:0 auto 4px;background-size:cover}
 .left:before{background-image:url($left-arrow)}
@@ -12,3 +14,7 @@ $origin: '/assets/repeat.png';
 .up:before{background-image:url($up-arrow)}
 .down:before{background-image:url($down-arrow)}
 .origin:before{background-image:url($origin)}
+
+.btn_open{position:relative;width:82px;height:84px;box-sizing:border-box;border-radius:8px;border:1px solid #888;background:#181818CC;font-size:12px;font-weight:500;line-height:16px;color:#FFF;text-align:center;}
+
+.btn_open:before{background-image:url($book)}
