@@ -87,7 +87,8 @@ const SidePanel = ({setTitle}:Props) => {
                 (<List>
                     <ListItem style={{backgroundColor:'#666'}}>전면부</ListItem>
                     {PARTS.INTERIOR.map((item) => 
-                        <DetailItem 
+                        <DetailItem
+                            id={item.id}
                             name={item.name}
                             desc={item.desc}
                             on={Boolean(item.inspection_result)}
@@ -98,7 +99,8 @@ const SidePanel = ({setTitle}:Props) => {
             { tabKey === "tab2" &&
                 (<List>
                     {PARTS.EXTERIOR.map((item) => 
-                        <DetailItem 
+                        <DetailItem
+                            id={item.id}
                             name={item.name}
                             desc={item.desc}
                             on={Boolean(item.inspection_result)}
