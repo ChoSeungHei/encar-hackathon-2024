@@ -10,7 +10,11 @@ import DetailItem from './DetailItem';
 import { INTERIOR, PARTS } from '../constants';
 import PartDetail from './PartDetail';
 
-const SidePanel = () => {
+interface Props{
+    setTitle: React.Dispatch<React.SetStateAction<string>>
+}
+
+const SidePanel = ({setTitle}:Props) => {
     const [tabKey, setTabKey] = useState('tab1'); //Default로 먼저 선택된 탭키.
     const [view, setView] = useState('list')
     const [selectedValue, setSelectedValue] = useState('')
@@ -48,11 +52,10 @@ const SidePanel = () => {
     };
     var tabs: ITab[] = [tab1, tab2, tab3, tab4, tab5];
 
-    const handleChangeView =(id:string) => {
-        if(id){
-            setView('detail')
-        } else {
-            setView('list')
+    const handleChangeView =(name:string) => {
+        if(name){
+            setView(name);
+            setTitle(`Please check\ninspection results of ${name}`)
         }
     }
 
@@ -82,6 +85,7 @@ const SidePanel = () => {
                             name={item.name}
                             desc={item.desc}
                             onSelect={()=>handleChangeView(item.id)}
+                            on={Boolean(item.inspection_result)}
                         />)
                     }
                 </List>)}
@@ -92,6 +96,7 @@ const SidePanel = () => {
                             name={item.name}
                             desc={item.desc}
                             onSelect={()=>handleChangeView(item.id)}
+                            on={Boolean(item.inspection_result)}
                         />)
                     }
                 </List>)}

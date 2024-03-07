@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -16,6 +16,8 @@ const darkTheme = createTheme({
 });
 
 function App() {
+  const [title, setTitle] = useState('Here is the exterior inspection result')
+
   let start = false;
   useEffect(() => {
     if (!start) {
@@ -26,10 +28,10 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <SidePanel></SidePanel>
+      <SidePanel setTitle={setTitle}></SidePanel>
       <div className='wrap'>
         <header className='header'>
-          <h1>Here is the exterior inspection result</h1>
+          <h1>{title}</h1>
           <span><CloseIncon /></span>
         </header>
         <canvas id="gfx-main" width="1920" height="800"></canvas>

@@ -4,5 +4,16 @@
 
 .wrap{}
 .header{display:flex;justify-content:space-between;position:fixed;top:0;left:400px;padding:50px 20px 40px;width:calc(100% - 420px);z-index:1;
-  h1{size:32px;color:#fff;}
+  h1{size:32px;color:#fff;white-space:pre-wrap;}
+}
+
+.MuiListItem-root.active {
+  .MuiListItemText-primary{display:inline-block;position: relative;color:#fff}
+  .MuiListItemText-primary:after{content:'';display:block;position: absolute;top:4px;right:-6px;width:4px;height:4px;background-color: #D72E36;border-radius:2px;} 
+  .MuiListItemText-secondary{color:#ccc}
+}
+
+.MuiListItem-root.notActive {
+  .MuiListItemText-primary{color:#a0a0a0}
+  .MuiListItemText-secondary{color:#666}
 }

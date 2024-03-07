@@ -6,14 +6,16 @@ import { ArrowRightIcon } from '../Assets/tab-icons/icons';
 interface Props {
     name:string;
     desc:string;
+    on?:boolean;
     onSelect:()=>void;
 }
 
-const DetailItem = ({name, desc, onSelect}:Props) => {
+const DetailItem = ({name, desc, on, onSelect}:Props) => {
 
     return (
     <ListItem 
-        style={{borderBottom:'1px solid #666'}} 
+        style={{borderBottom:'1px solid #666'}}
+        className={ on ? 'active' : 'notActive' }
         secondaryAction={
             <IconButton onClick={onSelect}>
                 <ArrowRightIcon />
@@ -23,7 +25,8 @@ const DetailItem = ({name, desc, onSelect}:Props) => {
                 primary={name}
                 secondary={<>{desc}</>}>
             </ListItemText>
-     </ListItem>)
+     </ListItem>
+)
 } 
 
 export default DetailItem
