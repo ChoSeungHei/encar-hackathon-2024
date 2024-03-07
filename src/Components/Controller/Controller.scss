@@ -1,9 +1,9 @@
-$left-arrow: '/assets/arrow-left.png';
-$right-arrow: '/assets/arrow-right.png';
-$up-arrow: '/assets/arrow-up.png';
-$down-arrow: '/assets/arrow-down.png';
-$origin: '/assets/repeat.png';
-$book: '/assets/book.png';
+$left-arrow: '/assets2/arrow-left.png';
+$right-arrow: '/assets2/arrow-right.png';
+$up-arrow: '/assets2/arrow-up.png';
+$down-arrow: '/assets2/arrow-down.png';
+$origin: '/assets2/repeat.png';
+$book: '/assets2/book.png';
 
 .controller_box{display:flex;gap:11px;position:absolute;bottom:60px;left:50%;transform:translate(-50%,0)}
 .arrow_box{display:flex;gap:8px;padding:8px;border-radius:8px;background:#181818CC}
