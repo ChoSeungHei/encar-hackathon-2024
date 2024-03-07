@@ -1,13 +1,11 @@
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import { List, ListItem, ListItemText } from '@mui/material';
+import { List, ListItem } from '@mui/material';
 import ScrollableTabs from './ScrollableTabs';
 import React, {useState} from "react";
 import { ITab } from "../Types/ITab";
-import IconButton from '@mui/material/IconButton';
-import { ArrowRightIcon } from '../Assets/tab-icons/icons';
 import DetailItem from './DetailItem';
-import { INTERIOR, PARTS } from '../constants';
+import { PARTS } from '../constants';
 import PartDetail from './PartDetail';
 
 const SidePanel = () => {
@@ -17,50 +15,56 @@ const SidePanel = () => {
 
     // Tabs
     var tab1:ITab = {
+        id:'INTERIOR',
         tabKey: "tab1",
-        tabText: "실내",
+        tabText: "Interior",
         selected: false,
         icon: "interior-numbered-on.svg"
     };
     var tab2:ITab = {
+        id:'EXTERIOR',
         tabKey: "tab2",
-        tabText: "외간",
+        tabText: "Exterior",
         selected: false,
         icon: "exterior-numbered-on.svg"
     };
     var tab3:ITab = {
+        id:'WHEEL',
         tabKey: "tab3",
-        tabText: "휠타이어",
+        tabText: "Wheel tiers",
         selected: false,
         icon: "wheel-on.svg"
     };
     var tab4:ITab = {
+        id:'OPTION',
         tabKey: "tab4",
-        tabText: "옵션",
+        tabText: "Option",
         selected: false,
         icon: "options-on.svg"
     };
     var tab5:ITab = {
+        id:'SHEET',
         tabKey: "tab5",
-        tabText: "실내시트",
+        tabText: "Interior Sheet",
         selected: false,
         icon: "seat-on.svg"
     };
     var tabs: ITab[] = [tab1, tab2, tab3, tab4, tab5];
 
-    const handleChangeView =(id:string) => {
-        if(id){
-            setView('detail')
-        } else {
+    const handleChangeView =(isClose:boolean) => {
+        if(isClose){
             setView('list')
+        } else {
+            setView('detail')
         }
     }
 
-    const handleSelect = (id:string) => {
-        if(id){
-            
-        }        
+    const handleOnSelect = (id:string) => {
+        setSelectedValue(id)
+        setView('detail')
     }
+
+    const selectedTab =  tabs.filter((item)=> item.tabKey === tabKey)[0].id;
 
     return (
     <Drawer open={true} hideBackdrop>
@@ -81,7 +85,7 @@ const SidePanel = () => {
                         <DetailItem 
                             name={item.name}
                             desc={item.desc}
-                            onSelect={()=>handleChangeView(item.id)}
+                            onSelect={()=>handleOnSelect(item.id)}
                         />)
                     }
                 </List>)}
@@ -91,7 +95,7 @@ const SidePanel = () => {
                         <DetailItem 
                             name={item.name}
                             desc={item.desc}
-                            onSelect={()=>handleChangeView(item.id)}
+                            onSelect={()=>handleOnSelect(item.id)}
                         />)
                     }
                 </List>)}
@@ -108,7 +112,11 @@ const SidePanel = () => {
                 <ListItem >실내시트</ListItem>
             </List>)}
             </Box> 
-            : <PartDetail id={view}></PartDetail>
+            : <PartDetail 
+                id={selectedValue} 
+                selectedTab={selectedTab}
+                onClose={()=>handleChangeView(true)}
+            />
         }
         
     </Drawer>)

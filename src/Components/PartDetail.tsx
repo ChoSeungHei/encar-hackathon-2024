@@ -1,16 +1,38 @@
-import { Box } from "@mui/material"
+import { Box, IconButton } from "@mui/material"
+import { PARTS } from "../constants"
+import { CloseIncon } from "../Assets/tab-icons/icons"
 
 interface Props {
     id:string
+    selectedTab:string
+    onClose:()=>void
 }
 
-const PartDetail = ({id}:Props) => {
-  console.log(id)
-  
+const PartDetail = ({id, selectedTab, onClose}:Props) => {
+  //@ts-ignore
+  const selectedPart = PARTS[selectedTab].find((item)=> item.id === id)
+
+  const hasInspection = selectedPart.inspection_result;
     return <Box sx={{ width: 400, paddingLeft:2 }}>
-      <h2>{id}</h2>
-      <h3>Inspection results</h3>
-      <h3>What is the passenger side glass?</h3>
+      <div>
+        <h2>{selectedPart.name}</h2>
+        <IconButton onClick={onClose}>
+          <CloseIncon />
+        </IconButton>
+      </div>
+      {
+        hasInspection ? 
+        <h3>Inspect results</h3> : <></>
+      }
+      {
+        hasInspection ? 
+        <>
+        <h3>What is the {selectedPart.name}?</h3>
+        <div>{selectedPart.desc}</div>
+        </> : <><div>{selectedPart.desc}</div></>
+      }
+      
+      
     </Box>
 }
 
