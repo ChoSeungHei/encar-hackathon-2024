@@ -6,7 +6,7 @@ import { ArrowRightIcon } from '../Assets/tab-icons/icons';
 interface Props {
     name:string;
     desc:string;
-    onSelect:(name:string)=>void;
+    onSelect:()=>void;
 }
 
 const DetailItem = ({name, desc, onSelect}:Props) => {
@@ -15,7 +15,7 @@ const DetailItem = ({name, desc, onSelect}:Props) => {
     <ListItem 
         style={{borderBottom:'1px solid #666'}} 
         secondaryAction={
-            <IconButton onClick={()=>onSelect(name)}>
+            <IconButton onClick={onSelect}>
                 <ArrowRightIcon />
             </IconButton>
         }>
