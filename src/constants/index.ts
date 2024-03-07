@@ -60,7 +60,7 @@ export const PARTS = {
     },
     {
         id:'CenterFascia',
-        name:'Center facia',
+        name:'Center fascia',
         desc:"The center fascia is the panel between the driver's seat and the passenger seat in the dashboard. Various buttons are gathered, including audio, air conditioning, navigation, air outlet, cigar jack, and cup holder.",
         img:'/img/center_fascia.png',
         inspectionImg: '/img/center_fascia_p.png',
