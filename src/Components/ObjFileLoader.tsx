@@ -1,11 +1,8 @@
-import React, { ChangeEvent, useState, useRef } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { ObjLoader } from '../renderer/ObjLoader'; // ObjLoader 클래스를 임포트합니다.
-import { Renderer } from '../renderer/Renderer';
 
 const ObjFileUploader: React.FC = () => {
   const [objLoader] = useState(new ObjLoader());  
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const renderer = useState();
   
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -28,7 +25,6 @@ const ObjFileUploader: React.FC = () => {
   return (
     <div>
       <input type="file" onChange={handleFileChange} accept=".obj" />
-      
     </div>
   );
 };

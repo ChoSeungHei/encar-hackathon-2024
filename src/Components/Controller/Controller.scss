@@ -1,0 +1,14 @@
+$left-arrow: '/assets/arrow-left.png';
+$right-arrow: '/assets/arrow-right.png';
+$up-arrow: '/assets/arrow-up.png';
+$down-arrow: '/assets/arrow-down.png';
+$origin: '/assets/repeat.png';
+
+.controller_box{display:flex;gap:8px;padding:8px;position:absolute;bottom:60px;left:50%;border-radius:8px;transform:translate(-50%,0);background:#181818CC}
+.controller_btn{position:relative;width:66px;height:68px;font-size:12px;font-weight:500;line-height:16px;color:#A0A0A0;text-align:center}
+.arrow:before{content:'';display:block;width:32px;height:32px;margin:0 auto 4px;background-size:cover}
+.left:before{background-image:url($left-arrow)}
+.right:before{background-image:url($right-arrow)}
+.up:before{background-image:url($up-arrow)}
+.down:before{background-image:url($down-arrow)}
+.origin:before{background-image:url($origin)}

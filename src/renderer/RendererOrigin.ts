@@ -12,15 +12,18 @@ export class RendererOrigin {
     resolveTexture!: GPUTexture;
     pipeline!: GPURenderPipeline;
     mvpUniformBuffer!: GPUBuffer;
-
     systemGUI!: SystemGUI;
-
+    
+    
     //camera
     camera!: Camera;
     camera_origin: vec3 = vec3.fromValues(-25, 400, 750);
     camera_position: vec3 = vec3.fromValues(-25, 400, 750);
     camera_target: vec3 = vec3.fromValues(0.0, 0.0, 0.0);
     camera_up: vec3 = vec3.fromValues(0.0, 1.0, 0.0);
+    model!:mat4;
+    view!:mat4;
+    projection!:mat4;
 
     //fps
     frameCount: number = 0;
@@ -62,15 +65,15 @@ export class RendererOrigin {
         this.fpsDisplay = document.getElementById('fpsDisplay');
 
         this.systemGUI = new SystemGUI();
-        this.camPosXControl = this.systemGUI.renderOptionGui.add(this.renderOptions, 'camPosX', -10000, 10000).name('Camera Position X').onChange((value: number) => {
-            this.camera.position[0] = value;
-        });
-        this.camPosYControl = this.systemGUI.renderOptionGui.add(this.renderOptions, 'camPosY', -10000, 10000).name('Camera Position Y').onChange((value: number) => {
-            this.camera.position[1] = value;
-        });
-        this.camPosZControl = this.systemGUI.renderOptionGui.add(this.renderOptions, 'camPosZ', -10000, 10000).name('Camera Position Z').onChange((value: number) => {
-            this.camera.position[2] = value;
-        });
+        // this.camPosXControl = this.systemGUI.renderOptionGui.add(this.renderOptions, 'camPosX', -10000, 10000).name('Camera Position X').onChange((value: number) => {
+        //     this.camera.position[0] = value;
+        // });
+        // this.camPosYControl = this.systemGUI.renderOptionGui.add(this.renderOptions, 'camPosY', -10000, 10000).name('Camera Position Y').onChange((value: number) => {
+        //     this.camera.position[1] = value;
+        // });
+        // this.camPosZControl = this.systemGUI.renderOptionGui.add(this.renderOptions, 'camPosZ', -10000, 10000).name('Camera Position Z').onChange((value: number) => {
+        //     this.camera.position[2] = value;
+        // });
 
 
     }
@@ -90,8 +93,9 @@ export class RendererOrigin {
         });
         this.createDepthTexture();
         this.createResolveTexture();
-        //this.printDeviceLimits();
-
+        this.projection = mat4.create();
+        this.view = mat4.create();
+        this.model = mat4.create();
     }
 
     createDepthTexture() {
@@ -114,18 +118,29 @@ export class RendererOrigin {
 
     setCamera(camera: Camera) {
         // Projection matrix: Perspective projection
-        const projection = mat4.create();
-        mat4.perspective(projection, camera.fov, this.canvas.width / this.canvas.height, camera.near, camera.far);
+        this.projection = mat4.create();
+        mat4.perspective(this.projection, camera.fov, this.canvas.width / this.canvas.height, camera.near, camera.far);
 
         // View matrix: Camera's position and orientation in the world
-        const view = mat4.create();
-        mat4.lookAt(view, camera.position, camera.target, camera.up);
-
-        // Model matrix: For now, we can use an identity matrix if we're not transforming the particles
-        const model = mat4.create(); // No transformation to the model
+        this.view = mat4.create();
+        mat4.lookAt(this.view, camera.position, camera.target, camera.up);
 
         // Now, update the buffer with these matrices
-        this.updateUniformBuffer(model, view, projection);
+        this.updateUniformBuffer(this.model, this.view, this.projection);
+    }
+
+    rotateModel(model:mat4, dx:number, dy:number){
+        const angleX = dy * Math.PI / 180;
+        const angleY = dx * Math.PI / 180;
+    
+        // x축 주변으로 회전
+        mat4.rotateX(model, model, angleX);
+    
+        // y축 주변으로 회전
+        mat4.rotateY(model, model, angleY);
+    
+        // 변환된 모델 행렬을 반환 (이 경우는 필요에 따라)
+        return model;    
     }
 
     updateUniformBuffer(model: mat4, view: mat4, projection: mat4) {
@@ -167,8 +182,30 @@ export class RendererOrigin {
     }
 
     lookOrigin() {
-        this.camera.position = vec3.fromValues(-25, 400, 750);
+        this.camera.position = vec3.fromValues(420, 400, 750);
         console.log(this.camera_origin);
+        this.updateRenderOptions();
+        this.model = mat4.create();
+    }
+
+    lookInner() {
+        this.camera.position[0] = 35.0;
+        this.camera.position[1] = 200.0;
+        this.camera.position[2] = -40.0;
+
+        this.camera.target[0] = 80.0;
+        this.camera.target[1] = 150.0;
+        this.camera.target[2] = 100.0;
+
+        this.model = mat4.fromValues(0.70,0.0,-0.71,0.0,0.0,1.0,0.0,0.0,0.71,0.0,0.70,0.0,0.0,0.0,0.0,1.0);        
+
+        this.updateRenderOptions();
+    }
+
+    lookPinpoint(dx:number,dy:number,dz:number) {
+        this.camera.position[0] = dx;
+        this.camera.position[1] = dy;
+        this.camera.position[2] = dz;
         this.updateRenderOptions();
     }
 
@@ -177,14 +214,25 @@ export class RendererOrigin {
         this.renderOptions.camPosY = this.camera.position[1];
         this.renderOptions.camPosZ = this.camera.position[2];
 
-        this.camPosXControl.updateDisplay();
-        this.camPosYControl.updateDisplay();
-        this.camPosZControl.updateDisplay();
+        // this.camPosXControl.updateDisplay();
+        // this.camPosYControl.updateDisplay();
+        // this.camPosZControl.updateDisplay();
     }
 
     rotateCamera(dx: number, dy: number) {
         if (this.camera.position[1] > 200) {
             this.camera.position[0] += dx;
+            this.camera.position[1] += dy;
+
+            this.updateRenderOptions();
+        }
+        else {
+            this.camera.position[1] = 201;
+        }
+    }
+
+    moveUpAndDown(dy: number) {
+        if (this.camera.position[1] > 200) {
             this.camera.position[1] += dy;
 
             this.updateRenderOptions();

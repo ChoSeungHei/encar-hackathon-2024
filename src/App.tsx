@@ -1,8 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import ObjFileLoader from './Components/ObjFileLoader';
+import Controller from './Components/Controller/Controller';
 import { Initialize } from './Components/RendererModule';
 
 
@@ -17,8 +14,10 @@ function App() {
 
 
   return (
-    <div>      
-      <canvas id="gfx-main" width="1920" height="800"></canvas>
+    <div>
+      <Controller/>
+      <canvas id="gfx-main" width="1920" height="900" style={{overflow: 'hidden'}}></canvas>
+      <button id="test">test</button>
     </div>
   );
 }
