@@ -62,7 +62,7 @@ export const Initialize = async () => {
             if (isLeftMouseDown) {
                 // 카메라 회전 로직 구현
                 var dx = event.clientX - lastMouseX;
-                var dy = event.clientY - lastMouseY;
+                // var dy = event.clientY - lastMouseY;
                 //console.log(dx, dy);
                 //sceneManager.rotateCamera(dx, dy);
 

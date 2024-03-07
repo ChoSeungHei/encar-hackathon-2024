@@ -4,11 +4,12 @@ import { Initialize } from './Components/RendererModule';
 
 
 function App() {
-  let start = false;
+  const start = useRef(false);
+
   useEffect(() => {
-    if(!start) {
+    if(!start.current) {
       Initialize();
-      start = true;
+      start.current = true;
     }
   }, []);
 

@@ -1,6 +1,6 @@
 import { vec3 } from 'gl-matrix';
 import { RendererOrigin } from './RendererOrigin';
-import { makeFloat32ArrayBuffer, makeFloat32ArrayBufferStorage, makeUInt32IndexArrayBuffer } from '../WebGPU/Buffer';
+import { makeFloat32ArrayBufferStorage } from '../WebGPU/Buffer';
 import { ObjLoader, ObjModel } from './ObjLoader';
 import { Textures } from './Shader';
 
@@ -251,7 +251,7 @@ export class Renderer extends RendererOrigin {
                 indexBuffers.push(indexBuffer);
 
                 // 해당 재질에 속하는 인스턴스 수와 인덱스 길이 계산
-                const instanceCount = _indices.length / 3;
+                // const instanceCount = _indices.length / 3;
                 const indicesLength = _indices.length;
                 indicesLengths.push(indicesLength);
 
