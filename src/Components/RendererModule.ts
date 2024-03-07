@@ -1,7 +1,6 @@
 import { Renderer } from "../renderer/Renderer";
 
 export const Initialize = async () => {
-
     const canvas = document.querySelector("canvas#gfx-main") as HTMLCanvasElement; // `as HTMLCanvasElement`로 타입 단언 사용
     if (!canvas) {
         console.error("Canvas element not found");
@@ -23,32 +22,32 @@ export const Initialize = async () => {
     let isLookInner = false;
     let lastMouseX: number, lastMouseY: number;
 
-    const test = document.querySelector("#test");
-    if(!test) return;
+    // const test = document.querySelector("#test");
+    // if(!test) return;
 
-    test.addEventListener("click",() => {
-        // 오른쪽
-        // sceneManager.movePinpoint(true, 130);
-        // origin.textContent = 'Interior View';
-        // isLookInner = false;
+    // test.addEventListener("click",() => {
+    //     // 오른쪽
+    //     // sceneManager.movePinpoint(true, 130);
+    //     // origin.textContent = 'Interior View';
+    //     // isLookInner = false;
 
-        // 왼쪽
-        // sceneManager.lookOrigin();
-        // sceneManager.rotateModel(sceneManager.model, -60, 0);
-        // origin.textContent = 'Interior View';
-        // isLookInner = false;
+    //     // 왼쪽
+    //     // sceneManager.lookOrigin();
+    //     // sceneManager.rotateModel(sceneManager.model, -60, 0);
+    //     // origin.textContent = 'Interior View';
+    //     // isLookInner = false;
 
-        // 내부
-        // sceneManager.lookInner();
-        // origin.textContent = 'Exterior View';
-        // isLookInner = true;
+    //     // 내부
+    //     // sceneManager.lookInner();
+    //     // origin.textContent = 'Exterior View';
+    //     // isLookInner = true;
 
-        // 라디에이터
-        sceneManager.lookOrigin();
-        sceneManager.rotateModel(sceneManager.model, 30, 0);
-        origin.textContent = 'Interior View';
-        isLookInner = false;
-    });
+    //     // 라디에이터
+    //     sceneManager.lookOrigin();
+    //     sceneManager.rotateModel(sceneManager.model, 30, 0);
+    //     origin.textContent = 'Interior View';
+    //     isLookInner = false;
+    // });
 
     canvas.addEventListener('mousedown', (event: MouseEvent) => { // `MouseEvent` 타입 명시
         if (event.button === 0) { // 좌클릭

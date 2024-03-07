@@ -1,38 +1,19 @@
-.App {
-  text-align: center;
+.MuiDrawer-root{width:100px;}
+
+*{margin:0;padding:0;}
+
+.wrap{}
+.header{display:flex;justify-content:space-between;position:fixed;top:0;left:420px;padding:50px 20px 40px;width:calc(100% - 460px);z-index:1;
+  h1{size:32px;color:#fff;white-space:pre-wrap;}
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MuiListItem-root.active {
+  .MuiListItemText-primary{display:inline-block;position: relative;color:#fff}
+  .MuiListItemText-primary:after{content:'';display:block;position: absolute;top:4px;right:-8px;width:4px;height:4px;background-color: #D72E36;border-radius:2px;} 
+  .MuiListItemText-secondary{color:#ccc}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.MuiListItem-root.notActive {
+  .MuiListItemText-primary{color:#a0a0a0}
+  .MuiListItemText-secondary{color:#666}
 }
