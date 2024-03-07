@@ -3,4 +3,5 @@ export interface ITab {
     tabText: string;
     selected: boolean;
     icon: string;
+    id:string
 }
