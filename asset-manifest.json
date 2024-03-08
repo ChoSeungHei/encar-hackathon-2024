@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/encar-hackathon-2024/static/css/main.18d67e03.css",
-    "main.js": "/encar-hackathon-2024/static/js/main.018982b4.js",
+    "main.js": "/encar-hackathon-2024/static/js/main.88bf43d9.js",
     "static/js/453.3e341db2.chunk.js": "/encar-hackathon-2024/static/js/453.3e341db2.chunk.js",
     "index.html": "/encar-hackathon-2024/index.html",
     "main.18d67e03.css.map": "/encar-hackathon-2024/static/css/main.18d67e03.css.map",
-    "main.018982b4.js.map": "/encar-hackathon-2024/static/js/main.018982b4.js.map",
+    "main.88bf43d9.js.map": "/encar-hackathon-2024/static/js/main.88bf43d9.js.map",
     "453.3e341db2.chunk.js.map": "/encar-hackathon-2024/static/js/453.3e341db2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.18d67e03.css",
-    "static/js/main.018982b4.js"
+    "static/js/main.88bf43d9.js"
   ]
 }
