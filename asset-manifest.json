@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/encar-hackathon-2024/static/css/main.18d67e03.css",
-    "main.js": "/encar-hackathon-2024/static/js/main.88bf43d9.js",
-    "static/js/453.3e341db2.chunk.js": "/encar-hackathon-2024/static/js/453.3e341db2.chunk.js",
-    "index.html": "/encar-hackathon-2024/index.html",
-    "main.18d67e03.css.map": "/encar-hackathon-2024/static/css/main.18d67e03.css.map",
-    "main.88bf43d9.js.map": "/encar-hackathon-2024/static/js/main.88bf43d9.js.map",
-    "453.3e341db2.chunk.js.map": "/encar-hackathon-2024/static/js/453.3e341db2.chunk.js.map"
+    "main.css": "/static/css/main.18d67e03.css",
+    "main.js": "/static/js/main.eea3c228.js",
+    "static/js/453.3e341db2.chunk.js": "/static/js/453.3e341db2.chunk.js",
+    "index.html": "/index.html",
+    "main.18d67e03.css.map": "/static/css/main.18d67e03.css.map",
+    "main.eea3c228.js.map": "/static/js/main.eea3c228.js.map",
+    "453.3e341db2.chunk.js.map": "/static/js/453.3e341db2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.18d67e03.css",
-    "static/js/main.88bf43d9.js"
+    "static/js/main.eea3c228.js"
   ]
 }
