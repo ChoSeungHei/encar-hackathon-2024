@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/encar-hackathon-2024/static/css/main.3f1bfc18.css",
-    "main.js": "/encar-hackathon-2024/static/js/main.ea915c0d.js",
-    "static/js/453.174b5b49.chunk.js": "/encar-hackathon-2024/static/js/453.174b5b49.chunk.js",
+    "main.css": "/encar-hackathon-2024/static/css/main.18d67e03.css",
+    "main.js": "/encar-hackathon-2024/static/js/main.018982b4.js",
+    "static/js/453.3e341db2.chunk.js": "/encar-hackathon-2024/static/js/453.3e341db2.chunk.js",
     "index.html": "/encar-hackathon-2024/index.html",
-    "main.3f1bfc18.css.map": "/encar-hackathon-2024/static/css/main.3f1bfc18.css.map",
-    "main.ea915c0d.js.map": "/encar-hackathon-2024/static/js/main.ea915c0d.js.map",
-    "453.174b5b49.chunk.js.map": "/encar-hackathon-2024/static/js/453.174b5b49.chunk.js.map"
+    "main.18d67e03.css.map": "/encar-hackathon-2024/static/css/main.18d67e03.css.map",
+    "main.018982b4.js.map": "/encar-hackathon-2024/static/js/main.018982b4.js.map",
+    "453.3e341db2.chunk.js.map": "/encar-hackathon-2024/static/js/453.3e341db2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f1bfc18.css",
-    "static/js/main.ea915c0d.js"
+    "static/css/main.18d67e03.css",
+    "static/js/main.018982b4.js"
   ]
 }
