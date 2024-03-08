@@ -21,7 +21,7 @@ export const PARTS = {
         desc:"The center fascia is the panel between the driver's seat and the passenger seat in the dashboard. Various buttons are gathered, including audio, air conditioning, navigation, air outlet, cigar jack, and cup holder.",
         img:'/img/center_fascia.png',
         inspectionImg: '/img/center_fascia_p.png',
-        inspection_result:'The frequently used ventilation button appears to be a bit rough. You can easily replace the button cover by purchasing it separately for about 20,000 won.',
+        inspection_result:'The frequently used ventilation button appears to be a bit rough. You can easily replace the button cover by purchasing it separately for about 20$.',
     },{
         id:'ConsoleBox',
         name:'ConsoleBox & Glove Box',
@@ -57,14 +57,15 @@ export const PARTS = {
         name:'Car radiator',
         desc:'It serves to cool the engine that always gets hot while driving the car. Located at the front of the vehicle, it circulates air and lower heat from the engine.',
         img:'/img/radiator.png',
-        inspection_result:'',
+        inspectionImg:'',
+        inspection_result:"",
     },
         {
         id:'TireWheel',
         name:'Tire wheel',
         desc:"It is one of the parts that make up the wheel and is a metal product that is connected to the axle to support the vehicle's load along with the tire, transmit it to driving force and braking force, and support the rubber tire to prevent deformation.",
         img:'',
-        inspection_result:"It is one of the parts that make up the wheel and is a metal product that is connected to the axle to support the vehicle's load along with the tire, transmit it to driving force and braking force, and support the rubber tire to prevent deformation.",
+        inspection_result:"",
     },
     ]
 }

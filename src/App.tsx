@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import ObjFileLoader from './Components/ObjFileLoader';
 import { Initialize } from './Components/RendererModule';
 import { CloseIncon } from './Assets/tab-icons/icons';
 import SidePanel from './Components/SidePanel';
@@ -36,7 +34,7 @@ function App() {
           <span><CloseIncon /></span>
         </header>
         <Controller/>
-        <canvas id="gfx-main" width="1920" height="900" style={{marginLeft:'230px'}}></canvas>
+        <canvas id="gfx-main" width="1920" height="1035" style={{marginLeft:'230px'}}></canvas>
       </div>
     </ThemeProvider>
   );

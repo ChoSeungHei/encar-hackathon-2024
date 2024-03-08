@@ -85,7 +85,7 @@ const SidePanel = ({setTitle}:Props) => {
                 </>
             { tabKey === "tab1" &&
                 (<List>
-                    <ListItem style={{backgroundColor:'#666'}}>전면부</ListItem>
+                    <ListItem style={{backgroundColor:'#666'}}>The Font Part</ListItem>
                     {PARTS.INTERIOR.map((item) => 
                         <DetailItem
                             id={item.id}

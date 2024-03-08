@@ -14,7 +14,7 @@ const PartDetail = ({id, selectedTab, onClose}:Props) => {
   const selectedPart = PARTS[selectedTab].find((item)=> item.id === id)
 
   const hasInspection = selectedPart.inspection_result !== '';
-    return <Box sx={{ width: 370, paddingLeft:2 }}>
+    return <Box sx={{ width: 370, padding:2 }}>
       <div style={{display:'flex', alignItems:'center', justifyContent:'space-between' }}>
         <span style={{fontSize:22, fontWeight:600, marginBottom:10, display:'block'}}>{selectedPart.name}</span>
         <IconButton onClick={onClose}>
@@ -26,19 +26,19 @@ const PartDetail = ({id, selectedTab, onClose}:Props) => {
         <>
           <h3 style={{marginBottom:10}}>Inspect results</h3>
           <p>{selectedPart.inspection_result}</p>
-          <img src={selectedPart.inspectionImg} style={{marginTop:10}}></img>
-          <hr style={{border:'1px solid #666', margin:'40px 30px 40px 20px'}}></hr>
+          <img alt='inspect' src={selectedPart.inspectionImg} style={{marginTop:10, width:'100%'}}></img>
+          <hr style={{border:'1px solid #666', margin:'40px 30px 40px 20px', display:'block'}}></hr>
         </> : <></>
       }
       {
         hasInspection ? 
         <>
-          <h3 style={{marginBottom:10}}>😮 What is the {selectedPart.name}?</h3>
+          <h3 style={{margin:"10px 0px" }}>😮 What is the {selectedPart.name}?</h3>
           <p>{selectedPart.desc}</p>
-          <img src={selectedPart.img} style={{marginTop:10}}></img>
+          <img alt='part' src={selectedPart.img} style={{marginTop:10 ,width:'100%'}}></img>
         </> : 
         <>
-          <img src={selectedPart.img} style={{marginTop:10}}></img>
+          <img alt='part_explain' src={selectedPart.img} style={{margin: "10px 0",width:'100%'}}></img>
           <div>{selectedPart.desc}</div>
         </>
       }
