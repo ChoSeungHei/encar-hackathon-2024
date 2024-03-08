@@ -65,7 +65,7 @@ export const PARTS = {
         name:'Tire wheel',
         desc:"It is one of the parts that make up the wheel and is a metal product that is connected to the axle to support the vehicle's load along with the tire, transmit it to driving force and braking force, and support the rubber tire to prevent deformation.",
         img:'',
-        inspection_result:"",
+        inspection_result:"no detail",
     },
     ]
 }

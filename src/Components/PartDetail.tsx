@@ -42,8 +42,6 @@ const PartDetail = ({id, selectedTab, onClose}:Props) => {
           <div>{selectedPart.desc}</div>
         </>
       }
-      
-      
     </Box>
 }
 
