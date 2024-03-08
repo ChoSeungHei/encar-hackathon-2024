@@ -1,11 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, CSSProperties } from 'react';
 import './App.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Initialize } from './Components/RendererModule';
 import { CloseIncon } from './Assets/tab-icons/icons';
 import SidePanel from './Components/SidePanel';
 import Controller from './Components/Controller/Controller';
+import BeatLoader from "react-spinners/BeatLoader";
 
+const override: CSSProperties = {
+  display: "block",
+  position: "absolute",
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-40%, 0)'
+};
 
 const darkTheme = createTheme({
   palette: {
@@ -19,7 +27,6 @@ function App() {
 
   useEffect(() => {
     if(!start.current) {
-      console.log(1111);
       Initialize();
       start.current = true;
     }
@@ -34,6 +41,7 @@ function App() {
           <span><CloseIncon /></span>
         </header>
         <Controller/>
+        <BeatLoader id="beat" color="#FF2E00" loading={true} cssOverride={override}/>
         <canvas id="gfx-main" width="1920" height="1035" style={{marginLeft:'230px'}}></canvas>
       </div>
     </ThemeProvider>

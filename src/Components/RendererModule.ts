@@ -210,5 +210,8 @@ export const Initialize = async () => {
     function animate() {
         sceneManager.render();
         requestAnimationFrame(animate);
+
+        const loading = document.querySelector("#beat") as HTMLElement;
+        if(loading) loading.style.display = "none";
     }
 }
